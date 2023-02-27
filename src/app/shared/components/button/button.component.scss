@@ -1,0 +1,24 @@
+@import "../../../../styles/colors.scss";
+
+.ui-button {
+  padding: 4px 12px;
+  background-color: $blue-dark;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &.disabled {
+    background-color: $grey-light;
+    cursor: default;
+  }
+
+  &__label {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 125%;
+    color: $white;
+    display: flex;
+  }
+}

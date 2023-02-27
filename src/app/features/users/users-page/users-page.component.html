@@ -1,0 +1,33 @@
+<div class="users-page">
+  <div class="users-page__content">
+    <table class="users-table">
+      <tr class="users-table__header">
+        <td>ID</td>
+        <td>Name</td>
+        <td class="--fixed-width">Active</td>
+      </tr>
+      <tr
+        class="users-table__item"
+        [class.active]="user.active"
+        *ngFor="let user of users$ | async"
+      >
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td class="--fixed-width">
+          <ui-toggle
+            [active]="user.active"
+            (stateChanged)="changeUserStatus(user, !user.active)"
+          ></ui-toggle>
+        </td>
+      </tr>
+    </table>
+    <ui-button
+      [text]="'ADD USER'"
+      [disabled]="addBtnDisabled"
+      (buttonClicked)="onBtnClick()"
+    ></ui-button>
+  </div>
+</div>
+<ng-container *ngIf="isModalOpened">
+  <app-add-user (modalClosed)="closeModal()"></app-add-user>
+</ng-container>

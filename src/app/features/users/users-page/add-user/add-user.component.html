@@ -1,0 +1,10 @@
+<div class="add-user" (click)="closeModal()">
+  <div class="add-user__popup" (click)="$event.stopPropagation()">
+    <p>Enter user's name</p>
+    <input type="text" #userName />
+    <ui-button
+      [text]="'ADD'"
+      (buttonClicked)="addUser(userName.value)"
+    ></ui-button>
+  </div>
+</div>
